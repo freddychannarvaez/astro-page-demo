@@ -1,0 +1,124 @@
+---
+const reasons = [
+  {
+    src: '/reason1.avif',
+    title: 'Garantía de calidad',
+    description: 'Garantizamos que nuestra miel es 100% pura'
+  },
+  {
+    src: '/reason2.avif',
+    title: 'Completamente local',
+    description: 'Somos una empresa orgullosamente yucateca'
+  },
+  {
+    src: '/reason3.avif',
+    title: 'Satisfacción del cliente',
+    description: 'Nuestros clientes aman nuestra miel y estamos orgullosos de brindar productos de alta calidad'
+  },
+  {
+    src: '/reason4.avif',
+    title: 'Con el sabor ideal',
+    description: 'Queremos que experimentes el gusto de la mejor miel de la naturaleza'
+  },
+  {
+    src: '/reason5.avif',
+    title: 'Sostenibilidad',
+    description: 'Nos aseguramos de que nuestros métodos de apicultura apoyen a las poblaciones de abejas y al medio ambiente'
+  },
+]
+---
+<section id="choose" class="choose-container">
+  <span class="choose-heading">¿Por qué elegir Kinil Kab?</span>
+  <div class="images-container">
+    {
+      reasons.map((reason) => (
+        <div class="img-section" style={`background-image:url(${reason.src})`}>
+          <span class="reason-title">{reason.title}</span>
+          <span class="reason-description">{reason.description}</span>
+        </div>
+      ))
+    }
+  </div>
+</section>
+<style>
+  .choose-container {
+    width: 100vw;
+    min-height: 560px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 30px 0 0 0;
+    background-color: #2C5962;
+
+    .choose-heading {
+      margin: 30px 0;
+      font-size: 36px;
+      font-weight: 700;
+      color: white;
+      text-align: center;
+
+      @media (width < 769px) {
+        font-size: 28px;
+        font-weight: normal;
+      }
+    }
+
+    .images-container {
+      display: inherit;
+      width: 100vw;
+      height: 450px;
+  
+      .img-section {
+        width: 0;
+        flex-grow: 1;
+        object-fit: cover;
+        transition: 1s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        overflow: hidden;
+        opacity: 0.7;
+        
+        /* img {
+          width: 30%;
+          height: 430px;
+          z-index: 0;
+        } */
+
+        .reason-title {
+          color: white;
+          font-size: 16px;
+          text-shadow: 2px 2px 2px black;
+          transition: 2s ease;
+          margin-top: 150px;
+        }
+        .reason-description {
+          font-size: 14px;
+          padding: 10px;
+          text-shadow: 2px 2px 2px black;
+          opacity: 0;
+        }
+      }
+  
+      .img-section:hover {
+        width: 150px;
+        opacity: 1;
+        /* img {
+           width: 40%;
+           opacity: 1;
+           filter: contrast(120%);
+         } */
+        .reason-title {
+          font-size: 20px;
+        }
+
+        .reason-description {
+          transition: opacity 2s;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+</style>

@@ -1,0 +1,53 @@
+---
+import Product from '../components/Product.astro';
+
+const products: any[] = [
+  {
+    src: '/product.avif',
+    title: '1 litro',
+    description: 'Envasada en botella de plástico'
+  },
+]
+---
+<section id="products" class="products">
+  <span class="products-title">Conoce nuestros productos</span>
+  <div class="products-flex">
+    {
+      products.map((product) => (
+        <Product src={product.src} title={product.title} description={product.description}></Product>
+      ))
+    }
+  </div>
+</section>
+<style>
+  .products {
+    width: 100vw;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 40px;
+    background-color: #2C5962;
+    
+    .products-title {
+      font-size: 36px;
+      font-weight: 700;
+      margin-top: 30px;
+      color: white;
+
+      @media (width < 769px) {
+        font-size: 28px;
+        font-weight: normal;
+      }
+    }
+    
+    .products-flex {
+      display: inherit;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      column-gap: 40px;
+    }
+  }
+</style>

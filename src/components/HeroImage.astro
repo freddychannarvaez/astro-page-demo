@@ -1,0 +1,70 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  src?: string;
+  title?: string;
+  description?: string;
+}
+
+const { src, title, description } = Astro.props;
+---
+
+<section class="hero-image-container">
+  <Image src={src!} alt="Honey in a delicious presentation" width="6000" height="4000" loading="eager"/>
+  <span class="title">{title}</span>
+  <span class="description">{description}</span>
+</section>
+<style>
+  .hero-image-container {
+    width: 100vw;
+    min-height: 700px;
+    object-fit: cover;
+    background-color: #EACB45;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    row-gap: 30px;
+    overflow: hidden;
+
+    img {
+      position: absolute;
+      width: 100% !important;
+      height: 700px !important;
+      z-index: 0;
+      object-fit: cover;
+      filter: contrast(0.8);
+
+      @media (width < 969px) {
+        width: 100%;
+      }
+    }
+    
+    .title {
+      width: 700px;
+      max-width: 90%;
+      font-size: 36px;
+      text-shadow: 2px 2px 5px gray;
+      z-index: 1;
+
+      @media (width < 769px) {
+        font-size: 20px;
+      }
+    }
+    
+    .description {
+      width: 700px;
+      max-width: 90%;
+      font-size: 18px;
+      text-shadow: 1px 1px 2px gray;
+      z-index: 1;
+
+      @media (width < 768px) {
+        font-size: 14px;
+      }
+    }
+  }
+</style>
