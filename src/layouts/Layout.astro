@@ -1,9 +1,19 @@
 ---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { ViewTransitions } from 'astro:transitions';
+
 interface Props {
 	title: string;
 }
 
 const { title } = Astro.props;
+const logo = '/logo-white.svg'
+const links = [
+  {name: '¿Por qué?', route: 'choose'},
+  {name: 'Nosotros', route: 'about'},
+  {name: 'Productos', route: 'products'},
+  ]
 ---
 
 <!doctype html>
@@ -15,9 +25,12 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+    <ViewTransitions/>
 	</head>
 	<body>
+    <Header logo={logo} links={links}></Header>
 		<slot />
+    <Footer></Footer>
 	</body>
 </html>
 <style is:global>
@@ -34,8 +47,7 @@ const { title } = Astro.props;
 	}
 	html {
 		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
+    width: 100vw;
 	}
 	code {
 		font-family:
@@ -48,4 +60,7 @@ const { title } = Astro.props;
 			Courier New,
 			monospace;
 	}
+  body {
+    margin: 0px;
+  }
 </style>
