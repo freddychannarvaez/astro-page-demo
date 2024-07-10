@@ -1,0 +1,74 @@
+---
+interface HoneyType {
+  image?: string;
+  name: string;
+  description: string;
+}
+
+const sectionTitle = 'Nuestra Miel';
+const setionDescription = 'Explore nuestra diversa gama de miel, cada una con su sabor y beneficios únicos';
+
+const honeyTypes: HoneyType[] = [
+  {
+    image: 'La variedad de flores en una de estas mieles es inmensa y depende de la región geográfica.',
+    name: 'Miel multifloral',
+    description: 'Una miel rica con un sabor suave y dulce. Una miel que viene de una gran variedad de flores.'
+  },
+  {
+    image: '',
+    name: 'Miel de tajonal',
+    description: 'Una miel generalmente más líquida y que presenta un tono más dorado. '
+  },
+  {
+    image: '',
+    name: 'Miel de tsitsilché',
+    description: 'Una miel con mayor consistencia y de color ámbar oscuro.'
+  },
+  {
+    image: '',
+    name: 'Miel de jabín',
+    description: 'Miel clara que no se cristaliza con facilidad.'
+  }
+]
+---
+<section class="types-container">
+  <div class="img-section">
+    <img src="/choose1.avif">
+  </div>
+  <div class="img-section">
+    <img src="/choose2.avif">
+  </div>
+  <div class="img-section">
+    <img src="/choose3.avif">
+  </div>
+  <div class="img-section">
+    <img src="/choose4.avif">
+  </div>
+</section>
+<style>
+  .types-container {
+    display: flex;
+    width: 100%;
+    height: 430px;
+
+    .img-section {
+      width: 0;
+      flex-grow: 1;
+      object-fit: cover;
+      opacity: 0.6;
+      filter: contrast(0.6);
+      transition: 0.5s ease;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .img-section:hover {
+      width: 80px;
+      opacity: 1;
+      filter: contrast(120%);
+    }
+  }
+</style>
