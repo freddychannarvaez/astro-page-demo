@@ -17,6 +17,7 @@ const { src, title, description } = Astro.props;
 </section>
 <style>
   .hero-image-container {
+    position: relative;
     width: 100vw;
     min-height: 700px;
     object-fit: cover;
@@ -32,15 +33,11 @@ const { src, title, description } = Astro.props;
 
     img {
       position: absolute;
-      width: 100% !important;
-      height: 700px !important;
+      width: 100%;
+      height: 100%;
       z-index: 0;
       object-fit: cover;
       filter: contrast(0.8);
-
-      @media (width < 969px) {
-        width: 100%;
-      }
     }
     
     .title {
